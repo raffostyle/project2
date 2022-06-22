@@ -1,0 +1,20 @@
+_schema-version: "2.1"
+ID: RN_LW_PROJECT_01
+version: 0.0.1
+modules:
+- name: db
+  type: hdb
+  path: db
+  requires:
+  - name: hdi_db
+    properties:
+      TARGET_CONTAINER: ~{hdi-container-name}
+resources:
+- name: hdi_db
+  type: com.sap.xs.hdi-container
+  parameters:
+    config:
+      database_id: 875a78d1-33b2-4c42-b774-f329c3c97fd8
+      schema: RN_LW_PROJECT_01_SCHEMA
+  properties:
+    hdi-container-name: ${service-name}
